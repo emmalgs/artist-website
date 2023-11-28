@@ -1,9 +1,10 @@
-import Logout from "./Logout";
+import { AdminHeaderProps } from '../../types';
+import Logout from './Logout';
 
-const AdminHeader = ({ user }) => {
+const AdminHeader: React.FC<AdminHeaderProps> = ({ user }) => {
   return (
     <div>
-      { user ? <Logout /> : <p>Please login to continue</p>}
+      {user ? <Logout /> : <p>Please login to continue</p>}
     </div>
   );
 };
