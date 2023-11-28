@@ -1,14 +1,14 @@
-import AdminHeader from "./AdminHeader";
+import AdminHeader from "../molecules/AdminHeader";
 import AdminDashboard from "./AdminDashboard";
-import Login from "./Login";
-import { auth, db } from "../../services/firebase";
+import { auth, db } from "../../../services/firebase";
+import firebase from "firebase/compat/app";
+import Login from "../molecules/Login";
 import { ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
-import firebase from "firebase/compat/app";
 
 const Home = () => {
   const [user, setUser] = useState<firebase.User | null>(null);
-  const [allArt, setAllArt] = useState([]);
+  const [allArt, setAllArt] = useState({});
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -20,11 +20,7 @@ const Home = () => {
       artdb,
       (snapshot) => {
         const data = snapshot.val();
-        const artList = [];
-        for (let id in data) {
-          artList.push({ id, ...data[id] });
-        }
-        setAllArt(artList);
+        setAllArt(data);
       },
       (error) => {
         console.log(error.message);
@@ -32,7 +28,6 @@ const Home = () => {
     );
     return () => unSubscribe();
   }, []);
-  console.log(allArt);
 
   return (
     <div>
