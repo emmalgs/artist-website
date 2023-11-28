@@ -1,20 +1,16 @@
-import { useState, useEffect } from 'react'; 
-import Login from './Login';
+import AdminHeader from "./AdminHeader";
+import Login from "./Login";
+import { auth } from "../../services/firebase";
 
 const Home = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem('loggedIn')) {
-      setLoggedIn(true);
-    }
-  }, []);
 
   return (
     <div>
-      {loggedIn ? <h1>Home</h1> : <Login />}
+      <AdminHeader user={auth.currentUser}/>
+      <h1>Admin Home</h1>
+      {auth.currentUser ? <div>Admin content</div> : <Login />}
     </div>
-  )
-}
+  );
+};
 
 export default Home;
