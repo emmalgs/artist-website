@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { auth } from "../../services/firebase";
+import { auth } from "../../../services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
