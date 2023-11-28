@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div>
-      {loggedIn ? <h1>Home</h1> : <Login setLoggedIn={setLoggedIn} />}
+      {loggedIn ? <h1>Home</h1> : <Login />}
     </div>
   )
 }
