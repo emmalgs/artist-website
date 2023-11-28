@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth } from "../../services/firebase";
+import { auth } from "../../../services/firebase";
 
 const Logout = () => {
   const [logoutMessage, setLogoutMessage] = useState("");
