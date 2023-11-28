@@ -1,10 +1,16 @@
-import Header from "./components/molecules/header"
+import "./index.css"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/cms/Home";
+import UserControl from "./components/user/UserControl";
 
 function App() {
   return (
-    <>
-      <Header />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UserControl />} />
+        <Route path="/admin" element={<Home />} />
+      </Routes>
+    </Router>
   )
 }
 
