@@ -1,4 +1,4 @@
-import { AdminHeaderProps } from '../../types';
+import { AdminHeaderProps } from '../../../types';
 import Logout from './Logout';
 
 const AdminHeader: React.FC<AdminHeaderProps> = ({ user }) => {
