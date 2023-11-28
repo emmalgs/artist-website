@@ -1,3 +1,5 @@
+import firebase from "firebase/compat/app";
+
 export interface FirebaseConfig {
   apiKey: string;
   authDomain: string;
@@ -9,3 +11,6 @@ export interface FirebaseConfig {
   measurementId: string;
 }
 
+export interface AdminHeaderProps {
+  user: firebase.User | null;
+}
