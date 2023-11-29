@@ -3,7 +3,7 @@ import CategoryHeader from "./CategoryHeader";
 
 const AllArtCard = ({ artworks }) => {
   return (
-    <div>
+    <div className="flex flex-col bg-slate-500 w-2/3 p-6 m-6 rounded-md">
         {Object.keys(artworks).map((category) => {
           return (
             <div key={category}>
