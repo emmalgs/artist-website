@@ -18,7 +18,7 @@ const Logout = () => {
   };
   return (
     <div>
-      <Button action={handleLogout} text="Logout" />
+      <Button action={handleLogout} text="Logout" type="button" />
       <div>{logoutMessage}</div>
     </div>
   );
