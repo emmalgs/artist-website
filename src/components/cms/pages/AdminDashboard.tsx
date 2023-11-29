@@ -1,31 +1,11 @@
-import React from 'react';
-import AllArtCard from '../molecules/AllArtCard';
+import React from "react";
+import AllArtCard from "../molecules/AllArtCard";
+import { Artworks } from "../../../types";
 
-interface Artwork {
-  title: string;
-  medium: string;
-  size: string;
-  price: number;
-}
-
-interface Artworks {
-  [year: string]: {
-    [artwork: string]: Artwork;
-  };
-}
-
-interface AdminDashboardProps {
-  artworks: Artworks;
-}
-
-const AdminDashboard: React.FC<AdminDashboardProps> = ({ artworks }) => {
+const AdminDashboard: React.FC<Artworks> = ({ artworks }) => {
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      <div>
-        <h2>All Art</h2>
-        <AllArtCard artworks={artworks} />
-      </div>
+    <div className="w-4/5 m-auto">
+      <AllArtCard artworks={artworks} />
     </div>
   );
 };
