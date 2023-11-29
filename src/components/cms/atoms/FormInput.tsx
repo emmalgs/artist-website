@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface FormInputProps {
   type: string;
@@ -9,13 +9,13 @@ interface FormInputProps {
 const FormInput: React.FC<FormInputProps> = ({ type, name, placeholder }) => {
   return (
     <input
-      className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       type={type}
       name={name}
-      id={`inline-${name}`}
+      id={name}
       placeholder={placeholder}
     />
   );
-}
+};
 
 export default FormInput;
