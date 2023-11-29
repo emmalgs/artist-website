@@ -11,8 +11,8 @@ interface FormSectionProps {
 
 const FormSection: React.FC<FormSectionProps> = ({ type, text, name, placeholder }) => {
   return (
-    <div className="md:flex md:items-center mb-6">
-      <div className="md:w-1/3">
+    <div className="pt-6 pb-4">
+      <div className="mb-4">
         <FormLabel type={type} text={text} />
       </div>
       <div className="md:w-2/3">
