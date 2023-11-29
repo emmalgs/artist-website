@@ -1,6 +1,7 @@
 import { auth } from "../../../services/firebase";
 import Button from "../atoms/Button";
 import FormInput from "../atoms/FormInput";
+import FormLabel from "../atoms/FormLabel";
 import { FormEvent, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -31,12 +32,7 @@ const Login = () => {
       <form onSubmit={handleLogin} className="w-full max-w-sm">
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="email"
-            >
-              Email
-            </label>
+            <FormLabel type="email" text="Email" />
           </div>
           <div className="md:w-2/3">
             <FormInput
@@ -47,12 +43,7 @@ const Login = () => {
         </div>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="password"
-            >
-              Password
-            </label>
+            <FormLabel type="password" text="Password" />
           </div>
           <div className="md:w-2/3">
             <FormInput
