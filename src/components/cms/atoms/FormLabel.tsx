@@ -8,7 +8,7 @@ interface FormLabelProps {
 const FormLabel: React.FC<FormLabelProps> = ({ type, text }) => {
   return (
     <label
-      className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+      className="block text-gray-700 text-sm font-bold mb-2"
       htmlFor={type}
     >
       {text}
