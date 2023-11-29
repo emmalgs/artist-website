@@ -1,8 +1,16 @@
+const IconButton = ({ icon, type }) => {
+  let iconStyle = ""
 
+  if (type === "delete") {
+    iconStyle = "text-red-700 hover:text-red-600"
+  } else if (type === "edit") {
+    iconStyle = "text-green-700 hover:text-green-600"
+  } else if (type === "add") {
+    iconStyle = "text-blue-700 hover:text-blue-600"
+  }
 
-const IconButton = ({ icon }) => {
   return (
-    <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-2 border-blue-700 hover:border-blue-500 rounded">
+    <button className={`${iconStyle} font-bold px-1 py-1`}>
       { icon }
     </button>
   )
