@@ -40,7 +40,7 @@ const Login = () => {
   ];
 
   return (
-    <div>
+    <div className="w-1/3 m-auto flex flex-col justify-center">
       <Form handleSubmit={handleLogin} buttonText="Login" sections={inputs} />
       <p>{loginMessage}</p>
       <p className="text-center text-gray-500 text-xs">
