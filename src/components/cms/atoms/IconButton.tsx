@@ -3,9 +3,10 @@ import React from 'react';
 interface IconButtonProps {
   type: "delete" | "edit" | "add";
   icon: React.ReactNode;
+  action: () => void;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ type, icon }) => {
+const IconButton: React.FC<IconButtonProps> = ({ type, icon, action }) => {
   let iconStyle = "";
 
   if (type === "delete") {
@@ -17,7 +18,7 @@ const IconButton: React.FC<IconButtonProps> = ({ type, icon }) => {
   }
 
   return (
-    <button className={`${iconStyle} font-bold px-1 py-1`}>
+    <button className={`${iconStyle} font-bold px-1 py-1`} onClick={action}>
       {icon}
     </button>
   );
