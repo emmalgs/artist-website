@@ -2,7 +2,7 @@ import AdminHeader from "../molecules/AdminHeader";
 import AdminDashboard from "./AdminDashboard";
 import { auth, db } from "../../../services/firebase";
 import firebase from "firebase/compat/app";
-import Login from "../molecules/Login";
+import Login from "./Login";
 import { ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
 
