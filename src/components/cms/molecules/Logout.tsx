@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { auth } from "../../../services/firebase";
+import Button from "../atoms/Button";
 
 const Logout = () => {
   const [logoutMessage, setLogoutMessage] = useState("");
@@ -17,7 +18,7 @@ const Logout = () => {
   };
   return (
     <div>
-      <button onClick={handleLogout}>Logout</button>
+      <Button action={handleLogout} text="Logout" />
       <div>{logoutMessage}</div>
     </div>
   );
