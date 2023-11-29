@@ -2,7 +2,7 @@ const ArtCard = ({ artwork }) => {
   return (
     <div className="art-card">
       <div>
-        <img src={artwork.imgSrc} alt={artwork.title} height="200px" />
+        <img src={artwork.imgSrc} alt={artwork.title} className="object-cover h-48 w-48" />
       </div>
       <h4>Title: {artwork.title}</h4>
       <p>Dimensions: {artwork.dimensions}</p>
