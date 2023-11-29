@@ -1,5 +1,7 @@
-import { FormEvent, useState } from "react";
 import { auth } from "../../../services/firebase";
+import Button from "../atoms/Button";
+import FormInput from "../atoms/FormInput";
+import { FormEvent, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
@@ -26,16 +28,40 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" />
+      <form onSubmit={handleLogin} className="w-full max-w-sm">
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="email"
+            >
+              Email
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <FormInput
+              type="email"
+              name="email"
+              placeholder="Your Email" />
+          </div>
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="password"
+            >
+              Password
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <FormInput
+              type="password"
+              name="password"
+              placeholder="Your Password" />
+          </div>
         </div>
-        <button type="submit">Login</button>
+        <Button text="Login" type="submit" action="" />
       </form>
       <div>{loginMessage}</div>
     </div>
