@@ -25,3 +25,19 @@ export interface FormProps {
   buttonText: string;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
+
+export type Painting = {
+  title: string;
+  dimensions: string;
+  medium: string;
+  price?: string;
+  imgSrc: string;
+};
+
+export interface Artwork {
+  artwork: Painting;
+}
+
+export interface Artworks {
+  artworks: { [key: string]: Painting }[];
+}
