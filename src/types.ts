@@ -14,3 +14,14 @@ export interface FirebaseConfig {
 export interface AdminHeaderProps {
   user: firebase.User | null;
 }
+
+export interface FormProps {
+  sections: Array<{
+    type: string;
+    text: string;
+    name: string;
+    placeholder: string;
+  }>;
+  buttonText: string;
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+}
