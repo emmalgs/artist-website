@@ -1,9 +1,10 @@
 import ArtCard from "./ArtCard";
 import CategoryHeader from "./CategoryHeader";
+import { Artworks } from "../../../types";
 
-const AllArtCard = ({ artworks }) => {
+const AllArtCard: React.FC<Artworks> = ({ artworks }) => {
   return (
-    <div className="flex flex-col bg-slate-500 w-2/3 p-6 m-6 rounded-md">
+    <div className="flex flex-col bg-stone-100 w-2/3 p-6 m-6 shadow-md rounded-md">
         {Object.keys(artworks).map((category) => {
           return (
             <div key={category}>
