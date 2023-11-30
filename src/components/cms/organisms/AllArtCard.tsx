@@ -4,6 +4,7 @@ import { db } from "../../../services/firebase";
 import CategoryHeader from "./CategoryHeader";
 import { Painting } from "../../../types";
 import { ref, push, set } from "firebase/database";
+import ContentHeader from "../molecules/ContentHeader";
 
 const AllArtCard: React.FC<Artworks> = ({ artworks }) => {
   const handleAddSubmit = (art: Painting, header: string) => {
@@ -22,7 +23,7 @@ const AllArtCard: React.FC<Artworks> = ({ artworks }) => {
         {Object.keys(artworks).map((category) => {
           return (
             <div key={category}>
-              <CategoryHeader category={category} handleSubmit={handleAddSubmit} />
+              <ContentHeader contentTitle={category} action="add" />
               {Object.keys(artworks[category]).map((artwork) => {
                 return (
                   <div key={artwork}>
