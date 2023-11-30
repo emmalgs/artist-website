@@ -1,7 +1,7 @@
-import ArtCard from "./ArtCard";
+import ArtCard from "../molecules/ArtCard";
 import { Artworks } from "../../../types";
 import { db } from "../../../services/firebase";
-import CategoryHeader from "../organisms/CategoryHeader";
+import CategoryHeader from "./CategoryHeader";
 import { Painting } from "../../../types";
 import { ref, push, set } from "firebase/database";
 
