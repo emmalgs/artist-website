@@ -89,6 +89,7 @@ const CategoryHeader: React.FC<CategoryHeaderProps> = ({
 
   const handleAddClick = () => {
     setFormVisible(!formVisible);
+    formVisible ? setForm(null) : 
     setForm(
       <Form
         buttonText="Add new work"
@@ -99,12 +100,16 @@ const CategoryHeader: React.FC<CategoryHeaderProps> = ({
   };
 
   return (
-    <div className="flex w-full gap-6 justify-between border-b-2 border-stone-700">
-      <h2 className="text-3xl pl-5">{category}</h2>
-      <div className="pr-5">
-        <IconButton icon={<FaPlus />} type="add" action={handleAddClick} />
+    <div>
+      <div className="flex w-full gap-6 justify-between border-b-2 border-stone-700">
+        <h2 className="text-3xl pl-5">{category}</h2>
+        <div className="pr-5">
+          <IconButton icon={<FaPlus />} type="add" action={handleAddClick} />
+        </div>
       </div>
+      <div className="fixed right-10 top-20">
       {form ? form : null}
+      </div>
     </div>
   );
 };
