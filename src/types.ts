@@ -21,6 +21,7 @@ export interface FormProps {
     text: string;
     name: string;
     placeholder: string;
+    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }>;
   buttonText: string;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
