@@ -1,4 +1,12 @@
-const Button = ({ text, action, type }) => {
+import React from 'react';
+
+interface ButtonProps {
+  type: "button" | "submit" | "reset" | undefined;
+  text: string;
+  action?: () => void;
+}
+
+const Button: React.FC<ButtonProps> = ({ text, action, type }) => {
   return (
     <button
       type={type}
