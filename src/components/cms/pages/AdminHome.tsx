@@ -8,19 +8,19 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [user, setUser] = useState<firebase.User | null>(null);
-  const [allArt, setAllArt] = useState({});
+  const [data, setData] = useState({});
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
     });
 
-    const artdb = ref(db, "paintings/");
+    const artdb = ref(db, "/");
     const unSubscribe = onValue(
       artdb,
       (snapshot) => {
-        const data = snapshot.val();
-        setAllArt(data);
+        const d = snapshot.val();
+        setData(d);
       },
       (error) => {
         console.log(error.message);
@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <div>
       <AdminHeader user={auth.currentUser} />
-      <div className="pt-20">{user ? <AdminDashboard artworks={allArt} /> : <Login />}</div>
+      <div className="pt-20">{user ? <AdminDashboard artworks={data} /> : <Login />}</div>
     </div>
   );
 };
