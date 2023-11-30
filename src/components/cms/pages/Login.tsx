@@ -1,5 +1,5 @@
 import { auth } from "../../../services/firebase";
-import Form from "../organisms/Form";
+import Form from "../molecules/Form";
 import { FormEvent, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
