@@ -1,14 +1,13 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
+import { FormInputProps } from "../../../types";
 
-interface FormInputProps {
-  type: string;
-  name: string;
-  placeholder: string;
-  accept?: string;
-  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-const FormInput: React.FC<FormInputProps> = ({ type, name, placeholder, accept = "", handleChange }) => {
+const FormInput: React.FC<FormInputProps> = ({
+  type,
+  name,
+  placeholder,
+  accept = "",
+  handleChange,
+}) => {
   return (
     <input
       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -17,7 +16,8 @@ const FormInput: React.FC<FormInputProps> = ({ type, name, placeholder, accept =
       id={name}
       placeholder={placeholder}
       accept={accept}
-      onChange={handleChange} />
+      onChange={handleChange}
+    />
   );
 };
 
