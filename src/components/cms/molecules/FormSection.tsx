@@ -12,11 +12,11 @@ interface FormSectionProps {
 
 const FormSection: React.FC<FormSectionProps> = ({ type, text, name, placeholder, handleInputEvent }) => {
   return (
-    <div className="pt-6 pb-4">
+    <div className="pt-4 pb-2">
       <div className="mb-4">
         <FormLabel text={text} labelId={name} />
       </div>
-      <div className="md:w-2/3">
+      <div className="md:w-5/6">
         <FormInput type={type} name={name} placeholder={placeholder} handleChange={handleInputEvent}/>
       </div>
     </div>
