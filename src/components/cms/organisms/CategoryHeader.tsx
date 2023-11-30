@@ -1,44 +1,56 @@
+import { db } from "../../../services/firebase";
 import Form from "../molecules/Form";
 // import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-// import { useState } from "react";
 import { FormInputProps } from "../../../types";
-import { db } from "../../../services/firebase";
 import { ref, onValue } from "firebase/database";
-import { useState, useEffect } from "react";
 
-const CategoryForm = ({ category }) => {
-  const [inputs, setInputs] = useState<FormInputProps[]>([]);
+interface CategoryFormProps {
+  category: string;
+}
+
+const CategoryForm: React.FC<CategoryFormProps> = ({ category }) => {
   const dbInputsLocation = `${category}/inputs`;
+  let uploadedImg: File;
 
-  useEffect(() => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      uploadedImg = e.target.files[0];
+    }
+    console.log(uploadedImg)
+  };
+
+  const getInputData = () => {
+    const inputList: FormInputProps[] = [];
     const inputData = ref(db, dbInputsLocation);
-    const unSubscribe = onValue(inputData, (snapshot) => {
+    onValue(inputData, (snapshot) => {
       const d = snapshot.val();
       const keys = Object.keys(d);
-      const inputList: FormInputProps[] = [];
       keys.forEach(
         (key, index) => {
-          const input: FormInputProps = {
+          let input: FormInputProps;
+          if (d[key].type === "file") {
+            input = {
+              ...d[key],
+              id: keys[index],
+              handleChange: handleImageChange,
+            }
+          } else {
+          input = {
             ...d[key],
             id: keys[index],
           };
+        }
           inputList.push(input);
         });
-        setInputs(inputList);
       },
         (error) => {
           console.log(error.message);
         }
       );
-    return () => unSubscribe();
-  });
+    return inputList;
+  };
 
-  // let uploadedImg: File;
-  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (e.target.files && e.target.files[0]) {
-  //     uploadedImg = e.target.files[0];
-  //   }
-  // };
+
 
   // const handleAddSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
@@ -120,7 +132,7 @@ const CategoryForm = ({ category }) => {
   return (
     <div>
       <Form
-        sections={inputs}
+        sections={getInputData()}
         handleSubmit={handleSubmit}
         buttonText="Add new work"
       />
