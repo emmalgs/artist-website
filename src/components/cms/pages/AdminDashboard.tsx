@@ -1,5 +1,5 @@
 import React from "react";
-import AllArtCard from "../molecules/AllArtCard";
+import AllArtCard from "../organisms/AllArtCard";
 import { Artworks } from "../../../types";
 
 const AdminDashboard: React.FC<Artworks> = ({ artworks }) => {
