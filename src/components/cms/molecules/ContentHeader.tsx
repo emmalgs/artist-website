@@ -4,7 +4,12 @@ import Logout from "./Logout";
 import { useState } from "react";
 import CategoryForm from "../organisms/CategoryHeader";
 
-const ContentHeader = ({ action, contentTitle }) => {
+interface ContentHeaderProps {
+  action: "add" | "logout";
+  contentTitle: string;
+}
+
+const ContentHeader: React.FC<ContentHeaderProps> = ({ action, contentTitle }) => {
   const [formVisible, setFormVisible] = useState(false);
 
   const handleAddClick = () => {
