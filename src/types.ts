@@ -42,3 +42,11 @@ export interface Artwork {
 export interface Artworks {
   artworks: { [key: string]: Painting }[];
 }
+
+export interface FormInputProps {
+  type: string;
+  name: string;
+  placeholder: string;
+  accept?: string;
+  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+}
