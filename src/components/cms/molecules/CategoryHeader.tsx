@@ -9,7 +9,7 @@ interface CategoryHeaderProps {
 
 const CategoryHeader: React.FC<CategoryHeaderProps> = ({ category }) => {
   const [formVisible, setFormVisible] = useState(false);
-  const [form, setForm] = useState(null);
+  const [form, setForm] = useState<React.ReactNode>(null);
 
   const inputs = [
     {
