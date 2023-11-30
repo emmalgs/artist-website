@@ -50,8 +50,6 @@ const CategoryForm: React.FC<CategoryFormProps> = ({ category }) => {
     return inputList;
   };
 
-
-
   // const handleAddSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
   //   const { title, dimensions, medium, price } = e.target as typeof e.target & {
@@ -82,59 +80,12 @@ const CategoryForm: React.FC<CategoryFormProps> = ({ category }) => {
     console.log("submit");
   };
 
-  // const inputs = [
-  //   {
-  //     type: "text",
-  //     text: "Title",
-  //     name: "title",
-  //     placeholder: "Title",
-  //   },
-  //   {
-  //     type: "text",
-  //     text: "Dimensions",
-  //     name: "dimensions",
-  //     placeholder: "Dimensions",
-  //   },
-  //   {
-  //     type: "text",
-  //     text: "Medium",
-  //     name: "medium",
-  //     placeholder: "Medium",
-  //   },
-  //   {
-  //     type: "text",
-  //     text: "Price",
-  //     name: "price",
-  //     placeholder: "Price",
-  //   },
-  //   {
-  //     type: "file",
-  //     text: "Image",
-  //     name: "image",
-  //     placeholder: "",
-  //     accept: "image/*",
-  //     handleChange: handleImageChange,
-  //   },
-  // ];
-
-  // const handleAddClick = () => {
-  //   setFormVisible(!formVisible);
-  //   formVisible ? setForm(null) :
-  //   setForm(
-  //     <Form
-  //       buttonText="Add new work"
-  //       sections={inputs}
-  //       handleSubmit={handleAddSubmit}
-  //     />
-  //   );
-  // };
-
   return (
     <div>
       <Form
         sections={getInputData()}
         handleSubmit={handleSubmit}
-        buttonText="Add new work"
+        buttonText="Add"
       />
     </div>
   );
