@@ -1,11 +1,10 @@
-import React from "react";
-import AllArtCard from "../organisms/AllArtCard";
-import { Artworks } from "../../../types";
+import AllContent from "../organisms/AllContent";
 
-const AdminDashboard: React.FC<Artworks> = ({ artworks }) => {
+
+const AdminDashboard = ({ content }) => {
   return (
     <div className="w-4/5 m-auto">
-      <AllArtCard artworks={artworks} />
+      <AllContent content={content} />
     </div>
   );
 };
