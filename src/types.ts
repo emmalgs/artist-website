@@ -16,13 +16,7 @@ export interface AdminHeaderProps {
 }
 
 export interface FormProps {
-  sections: Array<{
-    type: string;
-    text: string;
-    name: string;
-    placeholder: string;
-    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  }>;
+  sections: Array<FormInputProps>;
   buttonText: string;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
@@ -45,6 +39,7 @@ export interface Artworks {
 
 export interface FormInputProps {
   type: string;
+  text: string;
   name: string;
   placeholder: string;
   accept?: string;
