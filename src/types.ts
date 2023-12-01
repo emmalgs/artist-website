@@ -1,4 +1,5 @@
 import firebase from "firebase/compat/app";
+import { ChangeEvent } from "react";
 
 export interface FirebaseConfig {
   apiKey: string;
@@ -21,6 +22,14 @@ export interface FormProps {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
+export interface FormSectionProps {
+  type: string;
+  text: string;
+  name: string;
+  placeholder: string;
+  handleInputEvent?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 export type Painting = {
   title: string;
   dimensions: string;
@@ -39,7 +48,6 @@ export interface Artworks {
 
 export interface FormInputProps {
   type: string;
-  text: string;
   name: string;
   placeholder: string;
   accept?: string;
