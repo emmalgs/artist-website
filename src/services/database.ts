@@ -41,7 +41,7 @@ export const addItemToCollection = (category: string, item) => {
   item.id = newCollectionRef.key;
   set(newCollectionRef, item)
     .then(() => {
-
+      console.log("Data added successfully!");
     })
     .catch((error) => {
       console.error(error);
