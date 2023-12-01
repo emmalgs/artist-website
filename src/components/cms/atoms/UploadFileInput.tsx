@@ -1,8 +1,9 @@
-import { getImageURL } from "../../../services/storage";
+import { getImageURL, getAllImagesInStorage } from "../../../services/storage";
 import { useState } from "react";
 import { FormInputProps } from "../../../types";
 import IconButton from "./IconButton";
 import { FaCloudUploadAlt } from "react-icons/fa";
+import { get } from "firebase/database";
 
 const UploadFileInput: React.FC<FormInputProps> = ({
   name,
@@ -30,7 +31,7 @@ const UploadFileInput: React.FC<FormInputProps> = ({
         console.log(err);
       }
     }
-  }
+  };
 
   return (
     <div className="flex items-center flex-col justify-between">
@@ -43,7 +44,7 @@ const UploadFileInput: React.FC<FormInputProps> = ({
           placeholder={placeholder}
           accept={accept}
           onChange={handleFileChange}
-          data-image-url={url}
+          data-image={url}
         />
         <IconButton
           icon={<FaCloudUploadAlt />}
