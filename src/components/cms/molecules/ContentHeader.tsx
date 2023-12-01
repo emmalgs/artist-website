@@ -29,7 +29,7 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({ action, contentTitle }) =
       <h2 className="text-3xl pl-5">{contentTitle}</h2>
       <div className="pr-5">{headerButton}</div>
       <div className="fixed right-10 top-20">
-        {formVisible ? <CategoryForm category={contentTitle} /> : null}
+        {formVisible ? <CategoryForm category={contentTitle} handleAddClick={handleAddClick}/> : null}
       </div>
     </div>
   );
