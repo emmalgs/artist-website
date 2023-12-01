@@ -2,12 +2,6 @@ import { db } from "./firebase";
 import { ref, onValue, push, set } from "firebase/database";
 import { FormInputProps } from "../types";
 
-const getImageFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-  if (e.target.files && e.target.files[0]) {
-    return e.target.files[0];
-  }
-};
-
 export const getCategoryInputs = (category: string) => {
   const inputList: FormInputProps[] = [];
   const inputData = ref(db, `${category}/inputs`);
@@ -17,19 +11,10 @@ export const getCategoryInputs = (category: string) => {
       const d = snapshot.val();
       const keys = Object.keys(d);
       keys.forEach((key, index) => {
-        let input: FormInputProps;
-        if (d[key].type === "file") {
-          input = {
-            ...d[key],
-            id: keys[index],
-            handleChange: getImageFile,
-          };
-        } else {
-          input = {
+        const input = {
             ...d[key],
             id: keys[index],
           };
-        }
         inputList.push(input);
       });
     },
@@ -40,11 +25,23 @@ export const getCategoryInputs = (category: string) => {
   return inputList;
 };
 
+export const deleteItemFromCollection = (category: string, id: string) => {
+  const itemRef = ref(db, `${category}/collection/${id}`);
+  set(itemRef, null)
+    .then(() => {
+      console.log("Data removed successfully!");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
 export const addItemToCollection = (category: string, item) => {
   const newCollectionRef = push(ref(db, `${category}/collection`));
+  item.id = newCollectionRef.key;
   set(newCollectionRef, item)
     .then(() => {
-      console.log("Data saved successfully!");
+
     })
     .catch((error) => {
       console.error(error);
