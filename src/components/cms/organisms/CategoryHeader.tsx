@@ -1,29 +1,35 @@
 import Form from "../molecules/Form";
 // import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { addItemToCollection, getCategoryInputs } from "../../../services/database";
+import {
+  addItemToCollection,
+  getCategoryInputs,
+} from "../../../services/database";
 
 interface CategoryFormProps {
   category: string;
+  handleAddClick: () => void;
 }
 
-const CategoryForm: React.FC<CategoryFormProps> = ({ category }) => {
+const CategoryForm: React.FC<CategoryFormProps> = ({ category, handleAddClick }) => {
   const inputs = getCategoryInputs(category);
 
   const handleSubmit = (e) => {
-    const newItem = {}
+    e.preventDefault();
+    const newItem = {};
     inputs.map((input) => {
-      newItem[input.name] = e.target[input.name].value;
+      if (input.name === "image") {
+        newItem[input.name] = e.target[input.name].dataset.image;
+      } else {
+        newItem[input.name] = e.target[input.name].value;
+      }
     });
     addItemToCollection(category, newItem);
+    handleAddClick();
   };
 
   return (
     <div>
-      <Form
-        sections={inputs}
-        handleSubmit={handleSubmit}
-        buttonText="Add"
-      />
+      <Form sections={inputs} handleSubmit={handleSubmit} buttonText="Add" />
     </div>
   );
 };
