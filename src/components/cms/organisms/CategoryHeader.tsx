@@ -10,7 +10,6 @@ const CategoryForm: React.FC<CategoryFormProps> = ({ category }) => {
   const inputs = getCategoryInputs(category);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     const newItem = {}
     inputs.map((input) => {
       newItem[input.name] = e.target[input.name].value;
