@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <div>
       <AdminHeader user={auth.currentUser} />
-      <div className="pt-20">{user ? <AdminDashboard artworks={data} /> : <Login />}</div>
+      <div className="pt-20">{user ? <AdminDashboard content={data} /> : <Login />}</div>
     </div>
   );
 };
