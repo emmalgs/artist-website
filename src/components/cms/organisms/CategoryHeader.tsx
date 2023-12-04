@@ -1,5 +1,4 @@
 import Form from "../molecules/Form";
-// import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
   addItemToCollection,
   getCategoryInputs,
