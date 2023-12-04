@@ -15,7 +15,7 @@ const FormInput: React.FC<FormInputProps> = ({
         name={name}
         placeholder={placeholder}
         accept={accept}
-        type={type} text={""}      />
+        type={type}     />
     );
   } else {
     return (
