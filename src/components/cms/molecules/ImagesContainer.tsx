@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 const ImagesContainer = () => {
   const [images, setImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState("");
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -17,6 +18,10 @@ const ImagesContainer = () => {
     fetchImages();
   }, []);
 
+  const handleImageClick = (e) => {
+    const image = e.target.src;
+    setSelectedImage(image);
+  };
 
   return (
     <div className="flex flex-wrap justify-center">
@@ -26,6 +31,8 @@ const ImagesContainer = () => {
           src={image}
           alt="uploaded"
           className="object-cover h-48 w-48 m-2"
+          onClick={handleImageClick}
+          style={ image === selectedImage ? {border: "3px solid blue"} : {border: "none"}}
         />
       ))}
     </div>
