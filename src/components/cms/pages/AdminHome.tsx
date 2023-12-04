@@ -5,7 +5,7 @@ import firebase from "firebase/compat/app";
 import Login from "./Login";
 import { ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
-import ImagesContainer from "../molecules/ImageModal";
+import ImagesContainer from "./ImageModal";
 
 const Home = () => {
   const [user, setUser] = useState<firebase.User | null>(null);
