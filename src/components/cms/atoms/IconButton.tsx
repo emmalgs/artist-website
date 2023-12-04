@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface IconButtonProps {
-  type: "delete" | "edit" | "add" | "upload";
+  type: "delete" | "edit" | "add" | "upload" | "close";
   icon: React.ReactNode;
   action: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 }
@@ -17,6 +17,8 @@ const IconButton: React.FC<IconButtonProps> = ({ type, icon, action }) => {
     iconStyle = "text-blue-700 hover:text-blue-600";
   } else if (type === "upload") {
     iconStyle = "text-blue-700 hover:text-blue-600 text-3xl";
+  } else if (type === "close") {
+    iconStyle = "text-red-700 hover:text-stone-300 text-3xl";
   }
 
   return (
