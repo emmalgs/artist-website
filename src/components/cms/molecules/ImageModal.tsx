@@ -24,6 +24,7 @@ const ImageModal = ({ handleImageSelection, exit }) => {
   const handleImageClick = (e) => {
     const image = e.target.src;
     setSelectedImage(image);
+    handleImageSelection(image);
   };
 
   return (
@@ -51,7 +52,7 @@ const ImageModal = ({ handleImageSelection, exit }) => {
         <Button
           text="Add Image"
           type="button"
-          action={handleImageSelection(selectedImage)}
+          action={exit}
           disabled={selectedImage === "" ? true : false}
         />
       </div>
