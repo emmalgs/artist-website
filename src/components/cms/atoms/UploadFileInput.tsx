@@ -3,7 +3,7 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaImage } from "react-icons/fa";
 import { FormInputProps } from "../../../types";
 import IconButton from "./IconButton";
-import ImageModal from "../molecules/ImageModal";
+import ImageModal from "../pages/ImageModal";
 import { useState } from "react";
 
 const UploadFileInput: React.FC<FormInputProps> = ({
