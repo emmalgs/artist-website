@@ -5,7 +5,7 @@ import firebase from "firebase/compat/app";
 import Login from "./Login";
 import { ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
-import ImagesContainer from "../molecules/ImagesContainer";
+import ImagesContainer from "../molecules/ImageModal";
 
 const Home = () => {
   const [user, setUser] = useState<firebase.User | null>(null);
@@ -34,7 +34,6 @@ const Home = () => {
     <div>
       <AdminHeader user={auth.currentUser} />
       <div className="pt-20">{user ? <AdminDashboard content={data} /> : <Login />}</div>
-      <ImagesContainer />
     </div>
   );
 };
