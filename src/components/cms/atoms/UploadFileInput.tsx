@@ -5,7 +5,6 @@ import { FormInputProps } from "../../../types";
 import IconButton from "./IconButton";
 import ImageModal from "../molecules/ImageModal";
 import { useState } from "react";
-import { set } from "firebase/database";
 
 const UploadFileInput: React.FC<FormInputProps> = ({
   name,
