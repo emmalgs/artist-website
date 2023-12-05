@@ -1,15 +1,19 @@
 import { FaPlus } from "react-icons/fa";
 import IconButton from "../atoms/IconButton";
-import Logout from "./Logout";
+import Logout from "../molecules/Logout";
 import { useState } from "react";
-import CategoryForm from "../organisms/CategoryHeader";
+import CategoryForm from "./CategoryForm";
+import Modal from "./Modal";
 
 interface ContentHeaderProps {
   action: "add" | "logout";
   contentTitle: string;
 }
 
-const ContentHeader: React.FC<ContentHeaderProps> = ({ action, contentTitle }) => {
+const ContentHeader: React.FC<ContentHeaderProps> = ({
+  action,
+  contentTitle,
+}) => {
   const [formVisible, setFormVisible] = useState(false);
 
   const handleAddClick = () => {
@@ -28,9 +32,9 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({ action, contentTitle }) =
     <div className="flex justify-between items-center">
       <h2 className="text-3xl pl-5">{contentTitle}</h2>
       <div className="pr-5">{headerButton}</div>
-      <div className="fixed right-10 top-20">
-        {formVisible ? <CategoryForm category={contentTitle} handleAddClick={handleAddClick}/> : null}
-      </div>
+      {formVisible ? (
+        <Modal title="" onClose={handleAddClick} modalBody={<CategoryForm category={contentTitle} handleAddClick={handleAddClick} />} />
+      ) : null}
     </div>
   );
 };
