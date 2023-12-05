@@ -1,6 +1,5 @@
 import { getAllImagesInStorage } from "../../../services/storage";
 import { useState, useEffect } from "react";
-import Button from "../atoms/Button";
 import Modal from "../organisms/Modal";
 
 const ImageModal = ({ handleImageSelection, exit }) => {
