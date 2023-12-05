@@ -1,5 +1,5 @@
 import ContentCard from "../molecules/ContentCard";
-import ContentHeader from "../molecules/ContentHeader";
+import ContentHeader from "../organisms/ContentHeader";
 
 const AllContent = ({ content }) => {
   const showItems = (category) => {
