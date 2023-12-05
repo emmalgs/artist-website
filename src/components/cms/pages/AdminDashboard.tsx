@@ -1,4 +1,4 @@
-import AllContent from "../organisms/AllContent";
+import AllContent from "./AllContent";
 
 
 const AdminDashboard = ({ content }) => {
