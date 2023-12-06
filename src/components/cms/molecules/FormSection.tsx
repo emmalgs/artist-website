@@ -11,7 +11,7 @@ const FormSection: React.FC<FormSectionProps> = ({
   handleInputEvent,
 }) => {
   return (
-    <div className="pt-4 pb-2">
+    <div className="pt-4 pb-2 w-full">
       <div className="mb-4">
         <FormLabel text={text} labelId={name} />
       </div>
