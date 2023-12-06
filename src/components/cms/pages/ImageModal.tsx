@@ -31,13 +31,13 @@ const ImageModal = ({ handleImageSelection, exit }) => {
   };
 
   const body = (
-    <div className="flex flex-wrap bg-stone-100">
+    <div className="flex flex-wrap bg-stone-100 z-10">
       {images.map((image, index) => (
         <img
           key={index}
           src={image}
           alt="uploaded"
-          className="object-cover h-48 w-48 m-2"
+          className="object-cover h-48 w-48 m-2 z-20"
           onClick={handleImageClick}
           style={
             image === selectedImage
