@@ -16,3 +16,14 @@
 .header h1 {
   margin-right: 1em;
 }
+
+.form-popup {
+  width: 700px;
+}
+
+@media screen and (max-width: 790px) {
+  .form-popup {
+    width: 100%;
+  }
+  
+}
