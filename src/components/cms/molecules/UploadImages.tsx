@@ -1,14 +1,13 @@
 import { getImageURL } from "../../../services/storage";
-import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaImage } from "react-icons/fa";
 import { FormInputProps } from "../../../types";
-import IconButton from "./IconButton";
+import IconButton from "../atoms/IconButton";
 import ImageModal from "../pages/ImageModal";
 import { useState } from "react";
+import FileInput from "../atoms/FileInput";
+import ImageUploadView from "../atoms/ImageUploadView";
 
-const UploadFileInput: React.FC<FormInputProps> = ({
-  name,
-  placeholder,
+const UploadImages: React.FC<FormInputProps> = ({
   accept = "",
   type,
 }) => {
@@ -20,6 +19,7 @@ const UploadFileInput: React.FC<FormInputProps> = ({
     if (e.target.files) {
       uploadedImg = e.target.files[0];
     }
+    handleUpload(e);
   };
 
   const handleUpload = (e) => {
@@ -53,22 +53,9 @@ const UploadFileInput: React.FC<FormInputProps> = ({
         />
       ) : null}
       <div className="flex items-center flex-col justify-between">
-        <div className="flex items-center justify-between w-full">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type={type}
-            name={name}
-            id={name}
-            placeholder={placeholder}
-            accept={accept}
-            onChange={handleFileChange}
-            data-image={url}
-          />
-          <IconButton
-            icon={<FaCloudUploadAlt />}
-            type="upload"
-            action={handleUpload}
-          />
+        <p>Upload new image: </p>
+          <FileInput accept={accept} type={type} handleFileChange={handleFileChange} />
+          <h5>- OR -</h5>
           <p>
             Add existing image:{" "}
             <IconButton
@@ -79,15 +66,10 @@ const UploadFileInput: React.FC<FormInputProps> = ({
           </p>
         </div>
         {url ? (
-          <img
-            src={url}
-            alt="uploaded"
-            className="object-cover h-48 w-48 m-2"
-          />
-        ) : null}
+          <ImageUploadView imgSrc={url} deleteUpload={() => setUrl("")} />
+        ) : <p className="m-2 p-2">No image selected</p>}
       </div>
-    </div>
   );
 };
 
-export default UploadFileInput;
+export default UploadImages;
