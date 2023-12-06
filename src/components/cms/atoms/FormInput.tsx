@@ -1,6 +1,6 @@
 import React from "react";
 import { FormInputProps } from "../../../types";
-import UploadFileInput from "./UploadFileInput";
+import UploadFileInput from "../molecules/UploadImages";
 
 const FormInput: React.FC<FormInputProps> = ({
   type,
