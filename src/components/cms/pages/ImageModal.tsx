@@ -30,21 +30,31 @@ const ImageModal = ({ handleImageSelection, exit }) => {
     handleImageSelection(image);
   };
 
+  const body = (
+    <div className="flex flex-wrap bg-stone-100">
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt="uploaded"
+          className="object-cover h-48 w-48 m-2"
+          onClick={handleImageClick}
+          style={
+            image === selectedImage
+              ? { border: "3px solid blue" }
+              : { border: "none" }
+          }
+        />
+      ))}
+    </div>
+  )
+
   return (
-      <Modal title="Select an image" onClose={exit} modalBody={images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt="uploaded"
-            className="object-cover h-48 w-48 m-2"
-            onClick={handleImageClick}
-            style={
-              image === selectedImage
-                ? { border: "3px solid blue" }
-                : { border: "none" }
-            }
-          />
-        ))} />
+      <Modal
+        title="Select an image"
+        onClose={exit}
+        modalBody={body}
+      />
   );
 };
 
