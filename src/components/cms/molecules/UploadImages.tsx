@@ -1,11 +1,10 @@
 import { getImageURL } from "../../../services/storage";
-import { FaImage } from "react-icons/fa";
 import { FormInputProps } from "../../../types";
-import IconButton from "../atoms/IconButton";
 import ImageModal from "../pages/ImageModal";
 import { useState } from "react";
 import FileInput from "../atoms/FileInput";
 import ImageUploadView from "../atoms/ImageUploadView";
+import Button from "../atoms/Button";
 
 const UploadImages: React.FC<FormInputProps> = ({ accept = "", type }) => {
   const [url, setUrl] = useState<string>("");
@@ -46,19 +45,14 @@ const UploadImages: React.FC<FormInputProps> = ({ accept = "", type }) => {
       <div className="flex items-center flex-col justify-between">
         <p>Upload new image: </p>
         <FileInput
+          name="image"
           accept={accept}
           type={type}
           handleFileChange={handleFileChange}
+          source={url}
         />
         <h5>- OR -</h5>
-        <p>
-          Add existing image:{" "}
-          <IconButton
-            icon={<FaImage />}
-            type="upload"
-            action={handleAddExisitingImageClick}
-          />
-        </p>
+        <Button text="Select existing image" action={handleAddExisitingImageClick} />
       </div>
       {existingImg ? (
         <ImageModal
