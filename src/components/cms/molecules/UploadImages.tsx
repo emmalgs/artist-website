@@ -7,10 +7,7 @@ import { useState } from "react";
 import FileInput from "../atoms/FileInput";
 import ImageUploadView from "../atoms/ImageUploadView";
 
-const UploadImages: React.FC<FormInputProps> = ({
-  accept = "",
-  type,
-}) => {
+const UploadImages: React.FC<FormInputProps> = ({ accept = "", type }) => {
   const [url, setUrl] = useState<string>("");
   const [existingImg, setExistingImg] = useState<boolean>(false);
   let uploadedImg: File | null = null;
@@ -46,29 +43,34 @@ const UploadImages: React.FC<FormInputProps> = ({
 
   return (
     <div>
+      <div className="flex items-center flex-col justify-between">
+        <p>Upload new image: </p>
+        <FileInput
+          accept={accept}
+          type={type}
+          handleFileChange={handleFileChange}
+        />
+        <h5>- OR -</h5>
+        <p>
+          Add existing image:{" "}
+          <IconButton
+            icon={<FaImage />}
+            type="upload"
+            action={handleAddExisitingImageClick}
+          />
+        </p>
+      </div>
       {existingImg ? (
         <ImageModal
           handleImageSelection={handleImageSelection}
           exit={handleAddExisitingImageClick}
         />
-      ) : null}
-      <div className="flex items-center flex-col justify-between">
-        <p>Upload new image: </p>
-          <FileInput accept={accept} type={type} handleFileChange={handleFileChange} />
-          <h5>- OR -</h5>
-          <p>
-            Add existing image:{" "}
-            <IconButton
-              icon={<FaImage />}
-              type="upload"
-              action={handleAddExisitingImageClick}
-            />
-          </p>
-        </div>
-        {url ? (
-          <ImageUploadView imgSrc={url} deleteUpload={() => setUrl("")} />
-        ) : <p className="m-2 p-2">No image selected</p>}
-      </div>
+      ) : url ? (
+        <ImageUploadView imgSrc={url} deleteUpload={() => setUrl("")} />
+      ) : (
+        <p className="m-2 p-2">No image selected</p>
+      )}
+    </div>
   );
 };
 
