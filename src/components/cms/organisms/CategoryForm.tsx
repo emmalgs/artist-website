@@ -3,6 +3,7 @@ import {
   addItemToCollection,
   getCategoryInputs,
 } from "../../../services/database";
+import { useState } from "react";
 
 interface CategoryFormProps {
   category: string;
