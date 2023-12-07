@@ -31,7 +31,7 @@ const ImageModal = ({ handleImageSelection, exit }) => {
   };
 
   const body = (
-    <div className="flex flex-wrap bg-stone-100 z-10">
+    <div className="flex flex-wrap bg-stone-100">
       {images.map((image, index) => (
         <img
           key={index}
