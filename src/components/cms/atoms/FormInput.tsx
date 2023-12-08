@@ -29,7 +29,7 @@ const FormInput: React.FC<FormInputProps> = ({
         placeholder={placeholder}
         accept={accept}
         onChange={handleChange}
-        value={value}
+        defaultValue={value}
       />
     );
   }
