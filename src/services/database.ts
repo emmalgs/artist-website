@@ -47,3 +47,14 @@ export const addItemToCollection = (category: string, item) => {
       console.error(error);
     });
 }
+
+export const updateItemInCollection = (category: string, item) => {
+  const itemRef = ref(db, `${category}/collection/${item.id}`);
+  set(itemRef, item)
+    .then(() => {
+      console.log("Data updated successfully!");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
