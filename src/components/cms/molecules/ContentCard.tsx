@@ -5,8 +5,9 @@ import { FaTrash } from "react-icons/fa";
 import { deleteItemFromCollection } from "../../../services/database";
 import { useState } from "react";
 import EditItemForm from "../organisms/EditItemForm";
+import { ContentCardProps } from "../../../types";
 
-const ContentCard = ({ artwork, category }) => {
+const ContentCard: React.FC<ContentCardProps> = ({ artwork, category }) => {
   const [editMode, setEditMode] = useState(false);
   return (
     <div className="art-card flex justify-evenly px-2 py-4 m-4 rounded-sm w-full bg-stone-100 border-b-2">
@@ -19,6 +20,8 @@ const ContentCard = ({ artwork, category }) => {
       </div>
       <div>
         {editMode ? (
+          <EditItemForm category={category} item={artwork} />
+        ) : (
           Object.keys(artwork).map((key) => {
             if (key !== "image" && key !== "id") {
               return (
@@ -28,8 +31,6 @@ const ContentCard = ({ artwork, category }) => {
               );
             }
           })
-        ) : (
-          <EditItemForm category={category} item={artwork} />
         )}
         <IconButton
           icon={<FaEdit />}
