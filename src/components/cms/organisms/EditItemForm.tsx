@@ -1,12 +1,12 @@
 import { updateItemInCollection, getCategoryInputs } from "../../../services/database";
 import Form from "../molecules/Form";
 
-const EditItemForm = ({ category, item }) => {
+const EditItemForm = ({ category, item, handleUpdateSubmit }) => {
   const inputs = getCategoryInputs(category);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = {};
+    const newItem = { id: item.id };
     inputs.map((input) => {
       if (input.name === "image") {
         newItem[input.name] = e.target[input.name].dataset.image;
@@ -14,6 +14,7 @@ const EditItemForm = ({ category, item }) => {
         newItem[input.name] = e.target[input.name].value;
       }
     });
+    handleUpdateSubmit();
     updateItemInCollection(category, newItem);
   };
 
