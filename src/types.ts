@@ -59,3 +59,7 @@ export interface ContentCardProps {
   artwork: Painting;
   category: string;
 }
+
+export interface CardInfoProps {
+  text: string;
+}
