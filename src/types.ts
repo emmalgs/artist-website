@@ -28,6 +28,7 @@ export interface FormSectionProps {
   name: string;
   placeholder: string;
   handleInputEvent?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }
 
 export type Painting = {
