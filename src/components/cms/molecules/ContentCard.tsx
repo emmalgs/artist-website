@@ -9,6 +9,11 @@ import { ContentCardProps } from "../../../types";
 
 const ContentCard: React.FC<ContentCardProps> = ({ artwork, category }) => {
   const [editMode, setEditMode] = useState(false);
+
+  const handleUpdateSubmit = () => {
+    setEditMode(!editMode);
+  }
+
   return (
     <div className="art-card flex justify-evenly px-2 py-4 m-4 rounded-sm w-full bg-stone-100 border-b-2">
       <div>
@@ -20,10 +25,11 @@ const ContentCard: React.FC<ContentCardProps> = ({ artwork, category }) => {
       </div>
       <div>
         {editMode ? (
-          <EditItemForm category={category} item={artwork} />
-        ) : (
-          Object.keys(artwork).map((key) => {
-            if (key !== "image" && key !== "id") {
+          <EditItemForm category={category} item={artwork} handleUpdateSubmit={handleUpdateSubmit} />
+        ) : (<div className="flex flex-col">
+          <h4 className="font-bold text-2xl">{artwork.title}</h4>
+          {Object.keys(artwork).map((key) => {
+            if (key !== "image" && key !== "id" && key !== "title") {
               return (
                 <div key={key}>
                   <CardInfo text={artwork[key]} />
@@ -31,6 +37,8 @@ const ContentCard: React.FC<ContentCardProps> = ({ artwork, category }) => {
               );
             }
           })
+        }
+          </div>
         )}
         <IconButton
           icon={<FaEdit />}
