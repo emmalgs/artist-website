@@ -1,4 +1,4 @@
-import { updateItemInCollection } from "../../../services/database";
+import { updateItemInCollection, getCategoryInputs } from "../../../services/database";
 import Form from "../molecules/Form";
 
 const EditItemForm = ({ category, item }) => {
