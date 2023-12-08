@@ -8,6 +8,7 @@ const FormInput: React.FC<FormInputProps> = ({
   placeholder,
   accept = "",
   handleChange,
+  value,
 }) => {
   if (type === "file") {
     return (
@@ -15,7 +16,8 @@ const FormInput: React.FC<FormInputProps> = ({
         name={name}
         placeholder={placeholder}
         accept={accept}
-        type={type}     />
+        type={type}
+        value={value}     />
     );
   } else {
     return (
@@ -27,6 +29,7 @@ const FormInput: React.FC<FormInputProps> = ({
         placeholder={placeholder}
         accept={accept}
         onChange={handleChange}
+        value={value}
       />
     );
   }
