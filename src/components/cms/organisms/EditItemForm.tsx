@@ -18,12 +18,13 @@ const EditItemForm = ({ category, item }) => {
   };
 
   return (
-    <div>
+    <div className="art-card flex justify-evenly px-2 py-4 m-4 rounded-sm w-full bg-stone-100 border-b-2">
       <Form
         sections={inputs}
         handleSubmit={handleSubmit}
-        buttonText="Add"
+        buttonText="Update"
         values={item}
+        popup={false}
       />
     </div>
   );
