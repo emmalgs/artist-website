@@ -2,9 +2,10 @@ import FormSection from "./FormSection";
 import Button from "../atoms/Button";
 import { FormProps } from "../../../types";
 
-const Form: React.FC<FormProps> = ({ sections, buttonText, handleSubmit, values }) => {
+const Form: React.FC<FormProps> = ({ sections, buttonText, handleSubmit, values, popup = true }) => {
+  const style = popup ? "form-popup" : "";
   return (
-    <div className="pt-2 overflow-scroll form-popup">
+    <div className={`pt-2 overflow-scroll ${style}`}>
       <form onSubmit={(e) => handleSubmit(e)} className="bg-white shadow-md rounded px-4 pt-4 pb-4 mb-4">
         {sections.map((section, index) => {
           return (
