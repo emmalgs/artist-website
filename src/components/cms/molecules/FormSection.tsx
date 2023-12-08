@@ -9,6 +9,7 @@ const FormSection: React.FC<FormSectionProps> = ({
   name,
   placeholder,
   handleInputEvent,
+  value,
 }) => {
   return (
     <div className="pt-4 pb-2 w-full">
@@ -21,6 +22,7 @@ const FormSection: React.FC<FormSectionProps> = ({
           name={name}
           placeholder={placeholder}
           handleChange={handleInputEvent}
+          value={value}
         />
       </div>
     </div>
