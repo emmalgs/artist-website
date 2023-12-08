@@ -36,7 +36,7 @@ export type Painting = {
   dimensions: string;
   medium: string;
   price?: string;
-  imgSrc: string;
+  image: string;
 };
 
 export interface Artwork {
@@ -53,4 +53,9 @@ export interface FormInputProps {
   placeholder: string;
   accept?: string;
   handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface ContentCardProps {
+  artwork: Painting;
+  category: string;
 }
