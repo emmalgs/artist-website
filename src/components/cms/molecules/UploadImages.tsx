@@ -6,8 +6,8 @@ import FileInput from "../atoms/FileInput";
 import ImageUploadView from "../atoms/ImageUploadView";
 import Button from "../atoms/Button";
 
-const UploadImages: React.FC<FormInputProps> = ({ accept = "", type }) => {
-  const [url, setUrl] = useState<string>("");
+const UploadImages: React.FC<FormInputProps> = ({ accept = "", type, value }) => {
+  const [url, setUrl] = useState<string>(value);
   const [existingImg, setExistingImg] = useState<boolean>(false);
   let uploadedImg: File | null = null;
 
