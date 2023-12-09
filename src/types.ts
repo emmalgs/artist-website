@@ -19,7 +19,9 @@ export interface AdminHeaderProps {
 export interface FormProps {
   sections: Array<FormInputProps>;
   buttonText: string;
-  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  handleSubmit: (event: React.ChangeEvent<HTMLFormElement>) => void;
+  popup?: boolean;
+  values?: { [key: string]: string };
 }
 
 export interface FormSectionProps {
@@ -44,13 +46,14 @@ export interface Artwork {
 }
 
 export interface Artworks {
-  artworks: { [key: string]: Painting }[];
+  artworks: { [key: string]: Item }[];
 }
 
 export interface FormInputProps {
   type: string;
   name: string;
   placeholder: string;
+  text: string;
   accept?: string;
   handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -62,4 +65,14 @@ export interface ContentCardProps {
 
 export interface CardInfoProps {
   text: string;
+}
+
+export interface Item {
+  [key: string]: string;
+}
+
+export interface EditItemFormProps {
+  category: string;
+  item: Item;
+  handleUpdateSubmit: () => void;
 }
