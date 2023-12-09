@@ -12,9 +12,9 @@ export const getCategoryInputs = (category: string) => {
       const keys = Object.keys(d);
       keys.forEach((key, index) => {
         const input = {
-            ...d[key],
-            id: keys[index],
-          };
+          ...d[key],
+          id: keys[index],
+        };
         inputList.push(input);
       });
     },
@@ -34,7 +34,7 @@ export const deleteItemFromCollection = (category: string, id: string) => {
     .catch((error) => {
       console.error(error);
     });
-}
+};
 
 export const addItemToCollection = (category: string, item) => {
   const newCollectionRef = push(ref(db, `${category}/collection`));
@@ -46,7 +46,7 @@ export const addItemToCollection = (category: string, item) => {
     .catch((error) => {
       console.error(error);
     });
-}
+};
 
 export const updateItemInCollection = (category: string, item) => {
   const itemRef = ref(db, `${category}/collection/${item.id}`);
@@ -57,4 +57,15 @@ export const updateItemInCollection = (category: string, item) => {
     .catch((error) => {
       console.error(error);
     });
-}
+};
+
+export const addNewCategory = (category: string) => {
+  const newCategoryRef = push(ref(db, category));
+  set(newCategoryRef, { inputs: [] })
+    .then(() => {
+      console.log("Data added successfully!");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
