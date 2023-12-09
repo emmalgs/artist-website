@@ -23,7 +23,7 @@ export interface AdminDashboardProps {
 export interface FormProps {
   sections: Array<FormInputProps>;
   buttonText: string;
-  handleSubmit: (event: React.ChangeEvent<HTMLFormElement>) => void;
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   popup?: boolean;
   values?: { [key: string]: string };
 }
@@ -35,18 +35,6 @@ export interface FormSectionProps {
   placeholder: string;
   handleInputEvent?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
-}
-
-export type Painting = {
-  title: string;
-  dimensions: string;
-  medium: string;
-  price?: string;
-  image: string;
-};
-
-export interface Artwork {
-  artwork: Painting;
 }
 
 export interface Artworks {
@@ -63,7 +51,7 @@ export interface FormInputProps {
 }
 
 export interface ContentCardProps {
-  artwork: Painting;
+  artwork: Item;
   category: string;
 }
 
