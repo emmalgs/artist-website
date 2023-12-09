@@ -28,6 +28,11 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({
   } else if (action === "logout") {
     headerButton = <Logout />;
   }
+  let modalBody;
+  if (contentTitle === "All Website Content") {
+    modalBody
+  }
+
   return (
     <div className="flex justify-between items-center">
       <h2 className="text-3xl pl-5">{contentTitle}</h2>
