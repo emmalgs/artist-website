@@ -1,8 +1,9 @@
+import { AdminDashboardProps } from "../../../types";
 import ContentCard from "../molecules/ContentCard";
 import ContentHeader from "../organisms/ContentHeader";
 
-const AllContent = ({ content }) => {
-  const showItems = (category) => {
+const AllContent: React.FC<AdminDashboardProps> = ({ content }) => {
+  const showItems = (category: string) => {
     if (content[category].collection) {
       return Object.keys(content[category].collection).map((artwork) => {
         return (
