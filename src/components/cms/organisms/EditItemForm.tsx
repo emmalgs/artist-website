@@ -1,17 +1,19 @@
 import { updateItemInCollection, getCategoryInputs } from "../../../services/database";
+import { EditItemFormProps } from "../../../types";
 import Form from "../molecules/Form";
 
-const EditItemForm = ({ category, item, handleUpdateSubmit }) => {
+const EditItemForm: React.FC<EditItemFormProps> = ({ category, item, handleUpdateSubmit }) => {
   const inputs = getCategoryInputs(category);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newItem = { id: item.id };
+    const newItem: Record<string, string> = { id: item.id };
     inputs.map((input) => {
+      const target = e.target as typeof e.target & Record<string, any>;
       if (input.name === "image") {
-        newItem[input.name] = e.target[input.name].dataset.image;
+        newItem[input.name] = target[input.name].dataset.image;
       } else {
-        newItem[input.name] = e.target[input.name].value;
+        newItem[input.name] = target[input.name].value;
       }
     });
     handleUpdateSubmit();
