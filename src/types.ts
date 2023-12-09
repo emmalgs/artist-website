@@ -16,6 +16,10 @@ export interface AdminHeaderProps {
   user: firebase.User | null;
 }
 
+export interface AdminDashboardProps {
+  content: { [key: string]: Item }[];
+}
+
 export interface FormProps {
   sections: Array<FormInputProps>;
   buttonText: string;
