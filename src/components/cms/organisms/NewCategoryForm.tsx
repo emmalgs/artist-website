@@ -1,19 +1,20 @@
 import Form from "../molecules/Form";
 import { addNewCategory } from "../../../services/database";
 
-const NewCategoryForm = () => {
+const NewCategoryForm = ({ handleAddClick }) => {
   const inputs = [
     {
-      name: "name",
-      type: "text",
-      text: "Category Name",
-      placeholder: "Enter Category Name",
-    },
+        name: "name",
+        type: "text",
+        text: "Category Name",
+        placeholder: "Enter Category Name",
+      },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addNewCategory(e.target.name.value);
+    handleAddClick();
   };
 
   return (
