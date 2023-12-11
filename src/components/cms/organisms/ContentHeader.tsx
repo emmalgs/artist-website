@@ -4,6 +4,7 @@ import Logout from "../molecules/Logout";
 import { useState } from "react";
 import CategoryForm from "./CategoryForm";
 import Modal from "./Modal";
+import NewCategoryForm from "./NewCategoryForm";
 
 interface ContentHeaderProps {
   action: "add" | "logout";
@@ -30,7 +31,9 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({
   }
   let modalBody;
   if (contentTitle === "All Website Content") {
-    modalBody
+    modalBody = <NewCategoryForm handleAddClick={handleAddClick} />;
+  } else {
+    modalBody = <CategoryForm category={contentTitle} handleAddClick={handleAddClick} />;
   }
 
   return (
@@ -38,7 +41,7 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({
       <h2 className="text-3xl pl-5">{contentTitle}</h2>
       <div className="pr-5">{headerButton}</div>
       {formVisible ? (
-        <Modal title="" onClose={handleAddClick} modalBody={<CategoryForm category={contentTitle} handleAddClick={handleAddClick} />} />
+        <Modal title="" onClose={handleAddClick} modalBody={modalBody} />
       ) : null}
     </div>
   );
