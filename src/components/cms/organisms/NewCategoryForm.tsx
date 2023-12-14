@@ -13,6 +13,7 @@ const NewCategoryForm = ({ handleAddClick }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e.target.name.value)
     addNewCategory(e.target.name.value);
     handleAddClick();
   };

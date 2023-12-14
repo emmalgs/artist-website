@@ -1,6 +1,6 @@
 import { db } from "./firebase";
 import { ref, onValue, push, set } from "firebase/database";
-import { FormInputProps } from "../types";
+import { FormInputProps, Item } from "../types";
 
 export const getCategoryInputs = (category: string) => {
   const inputList: FormInputProps[] = [];
@@ -36,7 +36,7 @@ export const deleteItemFromCollection = (category: string, id: string) => {
     });
 };
 
-export const addItemToCollection = (category: string, item) => {
+export const addItemToCollection = (category: string, item: Item) => {
   const newCollectionRef = push(ref(db, `${category}/collection`));
   item.id = newCollectionRef.key;
   set(newCollectionRef, item)
@@ -48,7 +48,7 @@ export const addItemToCollection = (category: string, item) => {
     });
 };
 
-export const updateItemInCollection = (category: string, item) => {
+export const updateItemInCollection = (category: string, item: Item) => {
   const itemRef = ref(db, `${category}/collection/${item.id}`);
   set(itemRef, item)
     .then(() => {
@@ -60,8 +60,8 @@ export const updateItemInCollection = (category: string, item) => {
 };
 
 export const addNewCategory = (category: string) => {
-  const newCategoryRef = push(ref(db, category));
-  set(newCategoryRef, { inputs: [] })
+  const newCategoryRef = push(ref(db, `${category}`));
+  set(newCategoryRef, { inputs: [], collection: [] })
     .then(() => {
       console.log("Data added successfully!");
     })
