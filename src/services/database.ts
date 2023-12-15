@@ -60,7 +60,7 @@ export const updateItemInCollection = (category: string, item: Item) => {
 };
 
 export const addNewCategory = (category: string) => {
-  const newCategoryRef = push(ref(db, category));
+  const newCategoryRef = push(ref(db, `content`));
   set(newCategoryRef, { inputs: [], collection: [] })
     .then(() => {
       console.log(newCategoryRef);
