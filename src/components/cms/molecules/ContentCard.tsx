@@ -17,11 +17,12 @@ const ContentCard: React.FC<ContentCardProps> = ({ artwork, category }) => {
   return (
     <div className="art-card flex justify-evenly px-2 py-4 m-4 rounded-sm w-full bg-stone-100 border-b-2">
       <div>
-        <img
+        { artwork.image? <img
           src={artwork.image}
           alt="image of art piece"
           className="object-cover h-48 w-48"
-        />
+        /> :
+        null}
       </div>
       <div>
         {editMode ? (
@@ -32,7 +33,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ artwork, category }) => {
             if (key !== "image" && key !== "id" && key !== "title") {
               return (
                 <div key={key}>
-                  <CardInfo text={artwork[key]} />
+                  <CardInfo text={artwork[key]} name={key} />
                 </div>
               );
             }
