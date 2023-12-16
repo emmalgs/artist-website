@@ -28,9 +28,9 @@ const ContentCard: React.FC<ContentCardProps> = ({ artwork, category }) => {
         {editMode ? (
           <EditItemForm category={category} item={artwork} handleUpdateSubmit={handleUpdateSubmit} />
         ) : (<div className="flex flex-col">
-          <h4 className="font-bold text-2xl">{artwork.title}</h4>
+          <h4 className="font-bold text-2xl">{artwork.title ? artwork.title : artwork.header}</h4>
           {Object.keys(artwork).map((key) => {
-            if (key !== "image" && key !== "id" && key !== "title") {
+            if (key !== "image" && key !== "id" && key !== "title" && key !== "header") {
               return (
                 <div key={key}>
                   <CardInfo text={artwork[key]} name={key} />
